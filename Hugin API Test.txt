@@ -1,0 +1,56 @@
+1° step: starting the server process (starting the decision engine)
+
+	java -classpath huginws.jar;<PATH-hapi.jar> -Djava.library.path=<PATH-.dll/.so-DIR> COM.hugin.WEBSERVICE.Main [options...]
+
+	in cui <PATH-hapi.jar> 	è 	
+					"C:\Program Files\Hugin Expert\Hugin Lite 9.5 (x64)\HDE9.5J\Lib\hapi95-64.jar"
+	e <PATH-.dll/.so-DIR>	è 	"C:\Program Files\Hugin Expert\Hugin Lite 9.5 (x64)\HDE9.5J\Lib"
+	(il file "libhapi.dll" non c'è)
+
+
+	quindi il comando per avviare il server process		è	
+C:\Windows\System32>java -classpath "C:\Program Files\Hugin Expert\Hugin Lite 9.5 (x64)\HDE9.5WS\Lib\huginws.jar";"C:\Program Files\Hugin Expert\Hugin Lite 9.5 (x64)\HDE9.5J\Lib\hapi95-64.jar" -Djava.library.path="C:\Program Files\Hugin Expert\Hugin Lite 9.5 (x64)\HDE9.5J\Lib" COM.hugin.WEBSERVICE.Main
+
+2° step: 	define the network and export as .hkb file (hugin knowledge base)
+
+3° step: 	load the hkb network through the Hugin API and get the domainResource ID (/rest/domain/{ID}):
+		
+		POST http://localhost:8080/rest/loadDomain
+		Request body (raw text): =https://github.com/LeonardoBinni/huginAPI/raw/refs/heads/main/Test1.hkb
+		Response: 200 OK /rest/domain/00001210-0000-0000-0000-000000000000
+		domain Resource ID: 00001210-0000-0000-0000-000000000000
+
+4°step:		compile the domain:
+
+		POST http://localhost:8080/rest/domain/00001210-0000-0000-0000-000000000000/compile
+		Response: 200 OK 1
+
+5° step: 	Get Node ID from its name (in this case C1 is the name of the parent node):
+
+		GET http://localhost:8080/rest/domain/00001210-0000-0000-0000-000000000000/getNodeByName?=C1
+		Response: 200 OK /rest/domain/00001210-0000-0000-0000-000000000000/node/00001210-0000-0000-0000-000000000001
+		Node C1 ID: 00001210-0000-0000-0000-000000000001
+
+6° step: 	Test the beliefs without evidences on the node C1 (value 0 refers to the first state, value 1 refers to the second state):
+
+		GET http://localhost:8080/rest/domain/00001210-0000-0000-0000-000000000000/node/00001210-0000-0000-0000-000000000001/getBelief?=0
+		Params: Key="", Value=0
+		Response: 200 OK 0.3 --> corretto
+		
+		GET http://localhost:8080/rest/domain/00001210-0000-0000-0000-000000000000/node/00001210-0000-0000-0000-000000000001/getBelief?=1
+		Params: Key="", Value=1
+		Response: 200 OK 0.7 --> corretto
+
+7° step: 	Select a state of the node C1 (=0 for the first state or =1 for the second state):
+
+		POST http://localhost:8080/rest/domain/00001210-0000-0000-0000-000000000000/node/00001210-0000-0000-0000-000000000001/selectState
+		Request body (raw text): =0 
+		Response: 200 OK 1 --> (means that the state has been selected)
+
+8° step: 	Propagate evidence within the domain
+		
+		POST http://localhost:8080/rest/domain/00001210-0000-0000-0000-000000000000/propagate
+		Request body (raw text): =sum&=normal
+		Response: 200 OK 1 
+
+9° step: 	Get the belief of the child/parent node by repeating step 5 and 6 on the other node.
