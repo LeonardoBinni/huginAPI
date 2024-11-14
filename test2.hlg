@@ -1,0 +1,283 @@
+Thu Nov 14 10:34:32 2024
+
+
+Moral links:
+
+    Marrying PierHeight and PierSection
+    Marrying CorsaAppoggio and SpostamentoInTesta
+    Marrying PlasticizzVincoloBase and PierHeight
+    Marrying RotazioneRigida and PlasticizzVincoloBase
+    Marrying RotazioneRigida and PierHeight
+    Marrying TipoFondazione and EventoFranoso
+    Marrying AgProgetto and LivelliSisma
+    Marrying VulnerabilitaPericolositaFrane and LivelliSisma
+    Marrying Piers_Slenderness_1 and PericolositaSismaStr
+
+
+Triangulating prime component with 2 members:
+    CorsaAppoggio, PonteIsolato
+This component is a clique of cost 8
+
+Triangulating prime component with 3 members:
+    EventoFranoso, LivelliSisma, VulnerabilitaPericolositaFrane
+This component is a clique of cost 18
+
+Triangulating prime component with 3 members:
+    SpostamentoInTesta, CorsaAppoggio, CriticitaAppoggio
+This component is a clique of cost 72
+
+Triangulating prime component with 3 members:
+    EventoFranoso, RotazioneRigida, TipoFondazione
+This component is a clique of cost 12
+
+Triangulating prime component with 3 members:
+    PericolositaSismaStr, LivelliSisma, AgProgetto
+This component is a clique of cost 36
+
+Triangulating prime component with 3 members:
+    PiersBaseDamage, PlasticizzVincoloBase, RotazioneRigida
+This component is a clique of cost 12
+
+Triangulating prime component with 4 members:
+    SpostamentoInTesta, Inclination, PlasticizzVincoloBase, RotazioneRigida
+This component is a clique of cost 108
+
+Triangulating prime component with 4 members:
+    PierHeight, SpostamentoInTesta, PlasticizzVincoloBase, RotazioneRigida
+This component is a clique of cost 144
+
+Triangulating prime component with 7 members:
+    PierHeight, EventoFranoso, PlasticizzVincoloBase, RotazioneRigida,
+    PericolositaSismaStr, LivelliSisma, Piers_Slenderness_1
+
+    Using the best greedy heuristic for triangulation
+
+
+Triangulating prime component with 3 members:
+    PierSection, PierHeight, Piers_Slenderness_1
+This component is a clique of cost 32
+
+
+Total cost of triangulation for all prime components is 556
+
+
+Elimination sequence:
+
+    AgProgetto
+    PierSection
+    VulnerabilitaPericolositaFrane
+    LivelliSisma
+    PiersBaseDamage
+    TipoFondazione
+    PericolositaSismaStr
+    EventoFranoso
+    Piers_Slenderness_1
+    PierHeight
+    Inclination
+    RotazioneRigida
+    PlasticizzVincoloBase
+    CriticitaAppoggio
+    SpostamentoInTesta
+    PonteIsolato
+    CorsaAppoggio
+
+
+Cliques:
+
+Clique 13, 2 members, table size = 8:
+    CorsaAppoggio, PonteIsolato
+
+Clique 12, 3 members, table size = 72:
+    CorsaAppoggio, SpostamentoInTesta, CriticitaAppoggio
+
+Clique 11, 4 members, table size = 108:
+    SpostamentoInTesta, PlasticizzVincoloBase, RotazioneRigida, Inclination
+
+Clique 10, 4 members, table size = 144:
+    SpostamentoInTesta, PlasticizzVincoloBase, RotazioneRigida, PierHeight
+
+Clique 9, 4 members, table size = 48:
+    PlasticizzVincoloBase, RotazioneRigida, PierHeight, Piers_Slenderness_1
+
+Clique 8, 4 members, table size = 24:
+    PlasticizzVincoloBase, RotazioneRigida, Piers_Slenderness_1, EventoFranoso
+
+Clique 7, 4 members, table size = 24:
+    PlasticizzVincoloBase, Piers_Slenderness_1, EventoFranoso,
+    PericolositaSismaStr
+
+Clique 6, 3 members, table size = 18:
+    EventoFranoso, PericolositaSismaStr, LivelliSisma
+
+Clique 5, 3 members, table size = 18:
+    EventoFranoso, LivelliSisma, VulnerabilitaPericolositaFrane
+
+Clique 4, 3 members, table size = 36:
+    PericolositaSismaStr, LivelliSisma, AgProgetto
+
+Clique 3, 3 members, table size = 12:
+    RotazioneRigida, EventoFranoso, TipoFondazione
+
+Clique 2, 3 members, table size = 12:
+    PlasticizzVincoloBase, RotazioneRigida, PiersBaseDamage
+
+Clique 1, 3 members, table size = 32:
+    PierHeight, Piers_Slenderness_1, PierSection
+
+Total clique table size: 556
+
+
+The junction forest:
+
+Creating junction tree with clique 13 as root ...
+
+Cliques 12 and 13 linked, separator has 1 member and table size = 4:
+    CorsaAppoggio
+
+Cliques 11 and 12 linked, separator has 1 member and table size = 6:
+    SpostamentoInTesta
+
+Cliques 10 and 11 linked, separator has 3 members and table size = 36:
+    SpostamentoInTesta, PlasticizzVincoloBase, RotazioneRigida
+
+Cliques 9 and 10 linked, separator has 3 members and table size = 24:
+    PlasticizzVincoloBase, RotazioneRigida, PierHeight
+
+Cliques 8 and 9 linked, separator has 3 members and table size = 12:
+    PlasticizzVincoloBase, RotazioneRigida, Piers_Slenderness_1
+
+Cliques 7 and 8 linked, separator has 3 members and table size = 8:
+    PlasticizzVincoloBase, Piers_Slenderness_1, EventoFranoso
+
+Cliques 6 and 7 linked, separator has 2 members and table size = 6:
+    EventoFranoso, PericolositaSismaStr
+
+Cliques 5 and 6 linked, separator has 2 members and table size = 6:
+    EventoFranoso, LivelliSisma
+
+Cliques 4 and 6 linked, separator has 2 members and table size = 9:
+    PericolositaSismaStr, LivelliSisma
+
+Cliques 3 and 8 linked, separator has 2 members and table size = 6:
+    RotazioneRigida, EventoFranoso
+
+Cliques 2 and 8 linked, separator has 2 members and table size = 6:
+    PlasticizzVincoloBase, RotazioneRigida
+
+Cliques 1 and 9 linked, separator has 2 members and table size = 8:
+    PierHeight, Piers_Slenderness_1
+
+
+Assignment of potentials to cliques:
+
+    Node PierSection assigned to clique 1
+    Node PierHeight assigned to clique 1
+    Node SpostamentoInTesta assigned to clique 10
+    Node CorsaAppoggio assigned to clique 13
+    Node PonteIsolato assigned to clique 13
+    Node CriticitaAppoggio assigned to clique 12
+    Node Inclination assigned to clique 11
+    Node EventoFranoso assigned to clique 5
+    Node PiersBaseDamage assigned to clique 2
+    Node PlasticizzVincoloBase assigned to clique 7
+    Node RotazioneRigida assigned to clique 3
+    Node TipoFondazione assigned to clique 3
+    Node PericolositaSismaStr assigned to clique 4
+    Node LivelliSisma assigned to clique 6
+    Node AgProgetto assigned to clique 4
+    Node VulnerabilitaPericolositaFrane assigned to clique 5
+    Node Piers_Slenderness_1 assigned to clique 1
+
+
+Checking conditional probability potentials:
+
+    No errors found
+
+
+Beliefs for chance nodes:
+
+    PierSection:
+	state0   0.25
+	state1   0.25
+	state2   0.25
+	state3   0.25
+
+    PierHeight:
+	Low        0.25
+	Medium     0.25
+	High       0.25
+	SuperHigh  0.25
+
+    SpostamentoInTesta:
+	state0   0.797922
+	state1   0.0950986
+	state2   0.0456522
+	state3   0.0318471
+	state4   0.0199496
+	state5   0.00953054
+
+    CorsaAppoggio:
+	state0   0.25
+	state1   0.25
+	state2   0.1
+	state3   0.4
+
+    PonteIsolato:
+	Yes        0.5
+	No         0.5
+
+    CriticitaAppoggio:
+	Low        0.688248
+	Medium     0.124278
+	High       0.187475
+
+    Inclination:
+	state0   0.752025
+	state1   0.101064
+	state2   0.146911
+
+    EventoFranoso:
+	Assente    0.94073
+	Presente   0.05927
+
+    PiersBaseDamage:
+	Presente   0.209944
+	Assente    0.790056
+
+    PlasticizzVincoloBase:
+	NonPlasticizzato 0.793145
+	Plasticizzato 0.206855
+
+    RotazioneRigida:
+	state0   0.947105
+	state1   0.0331153
+	state2   0.0197796
+
+    TipoFondazione:
+	Profonde   0.5
+	Superficiali 0.5
+
+    PericolositaSismaStr:
+	Alta       0.439375
+	Media      0.367125
+	Bassa      0.1935
+
+    LivelliSisma:
+	Basso      0.8
+	Medio      0.15
+	Alto       0.05
+
+    AgProgetto:
+	NonPrevisto 0.25
+	Basso      0.25
+	Medio      0.25
+	Alto       0.25
+
+    VulnerabilitaPericolositaFrane:
+	Bassa      0.33
+	Media      0.33
+	Alta       0.34
+
+    Piers_Slenderness_1:
+	High piers 0.805625
+	Low piers  0.194375

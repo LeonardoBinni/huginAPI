@@ -1,19 +1,39 @@
+java path system variables:
+(da riaggiungere alle variabili - ora c'è solo la versione 8)
+C:\Program Files\Common Files\Oracle\Java\javapath
+C:\Program Files (x86)\Common Files\Oracle\Java\javapath
+
+
+
+
+
 1° step: starting the server process (starting the decision engine)
 
 	java -classpath huginws.jar;<PATH-hapi.jar> -Djava.library.path=<PATH-.dll/.so-DIR> COM.hugin.WEBSERVICE.Main [options...]
 
-	in cui <PATH-hapi.jar> 	è 	
-					"C:\Program Files\Hugin Expert\Hugin Lite 9.5 (x64)\HDE9.5J\Lib\hapi95-64.jar"
-	e <PATH-.dll/.so-DIR>	è 	"C:\Program Files\Hugin Expert\Hugin Lite 9.5 (x64)\HDE9.5J\Lib"
+	in cui <PATH-hapi.jar> 	è 	"C:\Program Files\Hugin Expert\Hugin Lite 9.5 (x64)\HDE9.5J\Lib\hapi95-64.jar" 	--> Hugin light 9.5 con limite nodi
+				o	"C:\Program Files\Hugin Expert\HUGIN 8.8 (x64)\HDE8.8J\Lib\hapi88-64.jar"	--> Hugin researcher 8.8 senza limite nodi
+
+	e <PATH-.dll/.so-DIR>	è 	"C:\Program Files\Hugin Expert\Hugin Lite 9.5 (x64)\HDE9.5J\Lib"		--> Hugin light 9.5 con limite nodi
+				o	"C:\Program Files\Hugin Expert\HUGIN 8.8 (x64)\HDE8.8J\Bin\j2se8"		--> Hugin researcher 8.8 senza limite nodi
+				
 	(il file "libhapi.dll" non c'è)
 
 
-	quindi il comando per avviare il server process		è	
+	quindi il comando per avviare il server process	dal prompt dei comandi (powershell è diverso perché c'è il punto e virgola)		è:
+	
 C:\Windows\System32>java -classpath "C:\Program Files\Hugin Expert\Hugin Lite 9.5 (x64)\HDE9.5WS\Lib\huginws.jar";"C:\Program Files\Hugin Expert\Hugin Lite 9.5 (x64)\HDE9.5J\Lib\hapi95-64.jar" -Djava.library.path="C:\Program Files\Hugin Expert\Hugin Lite 9.5 (x64)\HDE9.5J\Lib" COM.hugin.WEBSERVICE.Main
+
+o
+
+java -classpath "C:\Program Files\Hugin Expert\HUGIN 8.8 (x64)\HDE8.8WS\Lib\huginws.jar";"C:\Program Files\Hugin Expert\HUGIN 8.8 (x64)\HDE8.8J\Lib\hapi88-64.jar" -Djava.library.path="C:\Program Files\Hugin Expert\HUGIN 8.8 (x64)\HDE8.8J\Bin\j2se9" COM.hugin.WEBSERVICE.Main
+
+
+
 
 2° step: 	define the network and export as .hkb file (hugin knowledge base)
 
-3° step: 	load the hkb network through the Hugin API and get the domainResource ID (/rest/domain/{ID}):
+3° step: 	On Postman load the hkb network through the Hugin API and get the domainResource ID (/rest/domain/{ID}):
 		
 		POST http://localhost:8080/rest/loadDomain
 		Request body (raw text): =https://github.com/LeonardoBinni/huginAPI/raw/refs/heads/main/Test1.hkb
@@ -54,3 +74,8 @@ C:\Windows\System32>java -classpath "C:\Program Files\Hugin Expert\Hugin Lite 9.
 		Response: 200 OK 1 
 
 9° step: 	Get the belief of the child/parent node by repeating step 5 and 6 on the other node.
+
+10° step:	Keep the domain alive (otherwise deleted after 5 minutes - garbage collector)
+
+		POST http://localhost:8080/rest/domain/00001210-0000-0000-0000-000000000000/keepAlive
+		Response: 200 OK 1 
